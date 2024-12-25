@@ -10,7 +10,9 @@ django-grappelli==4.0.1
 django-jazzmin==3.0.1
 django-unfold==0.43.0
 djangorestframework==3.15.2
+gunicorn==23.0.0
 idna==3.10
+packaging==24.2
 paytm-pg==1.1.1
 psycopg2-binary==2.9.10
 pycryptodome==3.21.0
