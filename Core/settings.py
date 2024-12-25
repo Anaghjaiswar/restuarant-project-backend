@@ -34,7 +34,8 @@ INSTALLED_APPS = [
 ]
 
 CORS_ALLOWED_ORIGINS = [
-    "http://127.0.0.1:5500"
+    "http://127.0.0.1:5500",
+    "https://anaghjaiswar.github.io/restaurant-project-frontend/"
 ]
 
 MIDDLEWARE = [
