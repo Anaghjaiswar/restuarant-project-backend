@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Menu, Dish
+from .models import Menu, Dish, Order, OrderItem
 
 class DishSerializer(serializers.ModelSerializer):
     category_name = serializers.CharField(source='menu.category_name', read_only=True)

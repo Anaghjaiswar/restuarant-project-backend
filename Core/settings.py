@@ -35,7 +35,7 @@ INSTALLED_APPS = [
 
 CORS_ALLOWED_ORIGINS = [
     "http://127.0.0.1:5500",
-    "https://anaghjaiswar.github.io/restaurant-project-frontend/"
+    "https://anaghjaiswar.github.io",
 ]
 
 MIDDLEWARE = [
@@ -147,3 +147,7 @@ CLOUDINARY_STORAGE = {
 }
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
+# razorpay configuration
+# settings.py
+RAZORPAY_KEY_ID = os.getenv('RAZORPAY_KEY_ID')
+RAZORPAY_KEY_SECRET = os.getenv('RAZORPAY_KEY_SECRET')

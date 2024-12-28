@@ -1,5 +1,6 @@
 from django.contrib import admin
-from .models import Menu, Dish
+from .models import Menu, Dish,OrderItem, Order 
+
 
 @admin.register(Menu)
 class MenuAdmin(admin.ModelAdmin):
@@ -31,3 +32,7 @@ class DishAdmin(admin.ModelAdmin):
         """
         return obj.description[:50] + '...' if len(obj.description) > 50 else obj.description
     description_preview.short_description = 'Description Preview'
+
+
+admin.site.register(Order)
+admin.site.register(OrderItem)

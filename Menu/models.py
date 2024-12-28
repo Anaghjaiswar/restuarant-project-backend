@@ -35,3 +35,32 @@ class Dish(models.Model):
 
     class Meta:
         ordering = ['name']
+
+class Order(models.Model):
+    """
+    Represents an order placed by a user.
+    """
+    contact_number = models.CharField(max_length=15, verbose_name="Contact Number")
+    email = models.EmailField()
+    created_at = models.DateTimeField(auto_now_add=True)
+    razorpay_order_id = models.CharField(max_length=255, null=True, blank=True, verbose_name="Razorpay Order ID")
+    razorpay_payment_id = models.CharField(max_length=255, null=True, blank=True, verbose_name="Razorpay Payment ID")
+    is_paid = models.BooleanField(default=False, verbose_name="Is Paid")
+
+    def __str__(self):
+        return f"Order #{self.id} - {self.contact_number}"
+
+
+class OrderItem(models.Model):
+    """
+    Represents a specific item in an order.
+    """
+    order = models.ForeignKey(Order, related_name="order_items", on_delete=models.CASCADE)
+    menu = models.ForeignKey(Menu, on_delete=models.CASCADE, verbose_name="Menu")
+    dish = models.ForeignKey(Dish, on_delete=models.CASCADE, verbose_name="Dish")
+    quantity = models.PositiveIntegerField(verbose_name="Quantity")
+    special_requests = models.TextField(null=True, blank=True, verbose_name="Special Requests")
+
+    def __str__(self):
+        return f"{self.quantity}x {self.dish.name} in Order #{self.order.id}"
+
